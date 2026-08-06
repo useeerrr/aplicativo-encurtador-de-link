@@ -1,0 +1,29 @@
+{
+  "name": "encurtador-de-link",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "encurtador-de-url"
+  ],
+  "homepage": "https://github.com/useeerrr/aplicativo-encurtador-de-link#readme",
+  "bugs": {
+    "url": "https://github.com/useeerrr/aplicativo-encurtador-de-link/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/useeerrr/aplicativo-encurtador-de-link.git"
+  },
+  "license": "ISC",
+  "author": "João",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
