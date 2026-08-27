@@ -18,9 +18,20 @@ function linksController() {
 
                 reponse.status(201).json(reponseBody);
             } catch (error) {
-              next(error)
+              next(error);
             }
+        },
 
+        async redirect(request, response, next) {
+            try {
+                const code = request.params.code;
+                const link = await linksService.resolve()
+
+                response.set("Cache-Control", "public, max-age=300")
+                response.redirect(302, link.originalUrl);
+            } catch (error) {
+                next(error);
+            }
         }
     }
 }
