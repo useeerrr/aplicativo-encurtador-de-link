@@ -1,4 +1,4 @@
-const app = require("../http/app");
+const app = require("./http/app");
 
 const port = 3000;
 
