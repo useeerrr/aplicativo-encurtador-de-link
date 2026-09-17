@@ -1,7 +1,12 @@
-const app = require("./http/app");
+const createApp = require("./app");
+const env = require("./config/env");
+const createRepositories = require("./repositories");
 
-const port = 3000;
+const app = createApp(createRepositories(env));
 
-app.listen(port, () => {
-console.log("aplicação iniciada, usando a porta" + port);
+
+app.listen(env.port, () => {
+ console.log("API no ar em" + env.baseUrl);
+ console.log("Porta: " + env.port);
+ console.log("Driver: " + env.driver);
 }); 

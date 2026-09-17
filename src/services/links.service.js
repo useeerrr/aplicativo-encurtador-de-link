@@ -5,7 +5,7 @@ function fail(status, code, message) {
     
 }
 
-function linksService(retetionYears, maxUrlLenght) { 
+function linksService(linksRepository, codesService, retentionYears, maxUrlLenght, ) { 
     function validateUrl(value) {
          if (typeof value !== "string" || value.trim() ==="") {
              throw fail(400, "MISSING_URL", "O campo 'url' é obrigatório")
@@ -27,6 +27,21 @@ function linksService(retetionYears, maxUrlLenght) {
             return { code, originalUrl, createdAt, expiresAt};
          }
 
+         async function resolve(code) {
+            const link = await linksRepository.find(code);
+
+            if (!link) {
+               throw fail (400, "LINK_NOT_FOUND",  "O link não foi encontrado.");
+            }
+         }
+
+            if (link.expiresAt < new Date()) {
+               throw fail (400, "LINK_NOT_FOUND",  "O link expirou.");
+               
+            }
+
+         return link;
+         
          return { shorten };
 
          const trimmed = value.trim();

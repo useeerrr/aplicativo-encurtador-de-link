@@ -4,4 +4,8 @@ function counterRepository(){
     async function  reserverblock(size) {
         return counter += size;
     }
+
+    return { reserveBlock };
 }
+
+module.exports = counterRepository;

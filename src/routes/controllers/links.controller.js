@@ -1,4 +1,5 @@
-function linksController() {
+
+function linksController(linksService, baseUrl, cacheSeconds) {
     function formatResponse(link){
          return{
             code: link.code,
@@ -27,7 +28,7 @@ function linksController() {
                 const code = request.params.code;
                 const link = await linksService.resolve()
 
-                response.set("Cache-Control", "public, max-age=300")
+                response.set("Cache-Control", "public, max-age=" + cacheSeconds0);
                 response.redirect(302, link.originalUrl);
             } catch (error) {
                 next(error);
@@ -35,3 +36,5 @@ function linksController() {
         }
     }
 }
+
+module.exports.linksController;

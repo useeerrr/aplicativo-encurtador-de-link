@@ -13,5 +13,10 @@ function baseService(alphabet) {
         }
 
         return code;
+
     }
+    
+        return{
+            toBase62,
+        };
 }
